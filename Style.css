@@ -1,0 +1,379 @@
+/* ------------------------------------------------ */
+/* IMPORT FANCY FONTS                               */
+/* ------------------------------------------------ */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap');
+
+/* ------------------------------------------------ */
+/* GLOBAL RESET + BASE                              */
+/* ------------------------------------------------ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.7;
+    color: #eee;
+    background: linear-gradient(180deg, #000 0%, #1a1a1a 100%);
+    transition: background 1s ease, color 1s ease;
+    animation: fadeIn 1.2s ease forwards;
+    cursor: url('https://cur.cursors-4u.net/cursors/cur-2/cur116.cur'), auto;
+}
+
+/* Light mode (auto) */
+@media (prefers-color-scheme: light) {
+    body {
+        background: linear-gradient(180deg, #ffffff 0%, #f3eaff 100%);
+        color: #111;
+    }
+}
+
+/* Manual toggle class */
+.light-mode {
+    background: linear-gradient(180deg, #ffffff 0%, #f3eaff 100%);
+    color: #111;
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Section reveal animation */
+.reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: revealAnim 1s ease forwards;
+}
+
+@keyframes revealAnim {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ------------------------------------------------ */
+/* GLOBAL STRUCTURE                                 */
+/* ------------------------------------------------ */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section {
+    padding: 60px 0;
+    animation: fadeIn 1.2s ease forwards;
+}
+
+/* Lavender glowing divider */
+.section::after {
+    content: "";
+    display: block;
+    width: 80%;
+    height: 2px;
+    margin: 40px auto 0;
+    background: #c7a0e8;
+    box-shadow: 0 0 12px #c7a0e8;
+    border-radius: 10px;
+}
+
+/* ------------------------------------------------ */
+/* BUTTONS                                           */
+/* ------------------------------------------------ */
+.button,
+button {
+    display: inline-block;
+    padding: 12px 24px;
+    background: #c7a0e8;
+    color: #000;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    border-radius: 6px;
+    transition: 0.3s ease;
+}
+
+.button:hover,
+button:hover {
+    background: #000;
+    color: #c7a0e8;
+    transform: scale(1.08);
+    box-shadow: 0 0 12px #c7a0e8;
+}
+
+/* ------------------------------------------------ */
+/* HEADER + NAV                                      */
+/* ------------------------------------------------ */
+.site-header {
+    background: #111;
+    padding: 15px 0;
+    border-bottom: 2px solid #c7a0e8;
+}
+
+.header-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #c7a0e8;
+}
+
+.main-nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.main-nav a {
+    text-decoration: none;
+    color: #eee;
+    font-weight: 500;
+    transition: 0.3s ease;
+}
+
+.main-nav a:hover {
+    color: #c7a0e8;
+    text-shadow: 0 0 8px #c7a0e8;
+}
+
+/* Mobile nav */
+@media (max-width: 768px) {
+    .header-inner {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .main-nav ul {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+    }
+}
+
+/* ------------------------------------------------ */
+/* MODE TOGGLE BUTTON                                */
+/* ------------------------------------------------ */
+.mode-toggle {
+    background: #c7a0e8;
+    color: #000;
+    padding: 8px 16px;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    margin-left: 20px;
+    transition: 0.3s ease;
+}
+
+.mode-toggle:hover {
+    background: #000;
+    color: #c7a0e8;
+    box-shadow: 0 0 12px #c7a0e8;
+}
+
+/* ------------------------------------------------ */
+/* HERO SLIDER                                       */
+/* ------------------------------------------------ */
+.hero-slider {
+    display: flex;
+    overflow: hidden;
+    height: 300px;
+}
+
+.hero-slider .slide {
+    flex: 1;
+    min-width: 100%;
+    background: #333;
+    color: #c7a0e8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    font-family: 'Playfair Display', serif;
+}
+
+/* ------------------------------------------------ */
+/* ABOUT (HOME PAGE)                                 */
+/* ------------------------------------------------ */
+.about-inner {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+}
+
+.about-image img {
+    width: 100%;
+    max-width: 450px;
+    border-radius: 10px;
+    border: 2px solid #c7a0e8;
+    animation: float 4s ease-in-out infinite;
+}
+
+.about-text {
+    flex: 1;
+    font-size: 1.1rem;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .about-inner {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+/* Floating animation */
+@keyframes float {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+    100% { transform: translateY(0); }
+}
+
+/* ------------------------------------------------ */
+/* SERVICES CARDS                                    */
+/* ------------------------------------------------ */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+}
+
+.service-card {
+    background: #111;
+    padding: 25px;
+    border-radius: 10px;
+    text-align: center;
+    border: 2px solid #c7a0e8;
+    animation: float 4s ease-in-out infinite;
+    transition: 0.3s ease;
+}
+
+.service-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px #c7a0e8;
+}
+
+/* ------------------------------------------------ */
+/* GALLERY PREVIEW GRID                              */
+/* ------------------------------------------------ */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 15px;
+}
+
+.gallery-grid img {
+    width: 100%;
+    border-radius: 10px;
+    border: 2px solid #c7a0e8;
+    transition: 0.3s ease;
+    animation: float 4s ease-in-out infinite;
+}
+
+.gallery-grid img:hover {
+    transform: scale(1.08);
+    box-shadow: 0 0 20px #c7a0e8;
+}
+
+/* ------------------------------------------------ */
+/* CALL TO ACTION                                    */
+/* ------------------------------------------------ */
+.cta {
+    background: #c7a0e8;
+    color: #000;
+    text-align: center;
+    padding: 80px 20px;
+    border-radius: 10px;
+}
+
+.cta h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+}
+
+/* ------------------------------------------------ */
+/* ABOUT PAGE (ALTERNATING LAYOUT)                   */
+/* ------------------------------------------------ */
+.two-column {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+}
+
+.two-column .column img {
+    width: 100%;
+    border-radius: 10px;
+    border: 2px solid #c7a0e8;
+}
+
+.two-column .text-column {
+    flex: 1;
+    font-size: 1.1rem;
+}
+
+@media (max-width: 768px) {
+    .two-column {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+/* ------------------------------------------------ */
+/* CONTACT PAGE FORM                                 */
+/* ------------------------------------------------ */
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.contact-form label {
+    font-weight: bold;
+    color: #c7a0e8;
+}
+
+.contact-form input,
+.contact-form textarea {
+    padding: 12px;
+    border: 2px solid #c7a0e8;
+    background: #111;
+    color: #eee;
+    border-radius: 6px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    outline: none;
+    box-shadow: 0 0 12px #c7a0e8;
+}
+
+.contact-form button {
+    background: #c7a0e8;
+    color: #000;
+    font-weight: bold;
+    padding: 12px;
+    border-radius: 6px;
+    transition: 0.3s ease;
+}
+
+.contact-form button:hover {
+    background: #000;
+    color: #c7a0e8;
+    box-shadow: 0 0 15px #c7a0e8;
+}
